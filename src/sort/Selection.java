@@ -6,18 +6,18 @@ package sort;
  *  Dependencies: StdOut.java StdIn.java
  *  Data files:   http://algs4.cs.princeton.edu/21sort/tiny.txt
  *                http://algs4.cs.princeton.edu/21sort/words3.txt
- *   
+ *
  *  Sorts a sequence of strings from standard input using selection sort.
- *   
+ *
  *  % more tiny.txt
  *  S O R T E X A M P L E
  *
  *  % java Selection < tiny.txt
  *  A E E L M O P R S T X                 [ one string per line ]
- *    
+ *
  *  % more words3.txt
  *  bed bug dad yes zoo ... all bad yet
- *  
+ *
  *  % java Selection < words3.txt
  *  all bad bed bug dad ... yes yet zoo    [ one string per line ]
  *
@@ -37,6 +37,17 @@ import edu.princeton.cs.introcs.StdOut;
  *
  *  @author Robert Sedgewick
  *  @author Kevin Wayne
+ */
+
+/*
+ * Selection sort. One of the simplest sorting algorithms works as follows:
+ * First, find the smallest item in the array, and exchange it with the first
+ * entry. Then, find the next smallest item and exchange it with the second
+ * entry. Continue in this way until the entire array is sorted. This method is
+ * called selection sort because it works by repeatedly selecting the smallest
+ * remaining item. Selection.java is an implementation of this
+ * method.Proposition. Selection sort uses ~N2/2 compares and N exchanges to
+ * sort an array of length N.
  */
 public class Selection {
 
@@ -82,7 +93,7 @@ public class Selection {
    /***********************************************************************
     *  Helper sorting functions
     ***********************************************************************/
-    
+
     // is v < w ?
     private static boolean less(Comparable v, Comparable w) {
         return (v.compareTo(w) < 0);
@@ -92,8 +103,8 @@ public class Selection {
     private static boolean less(Comparator c, Object v, Object w) {
         return (c.compare(v, w) < 0);
     }
-        
-        
+
+
     // exchange a[i] and a[j]
     private static void exch(Object[] a, int i, int j) {
         Object swap = a[i];
@@ -110,7 +121,7 @@ public class Selection {
     private static boolean isSorted(Comparable[] a) {
         return isSorted(a, 0, a.length - 1);
     }
-        
+
     // is the array sorted from a[lo] to a[hi]
     private static boolean isSorted(Comparable[] a, int lo, int hi) {
         for (int i = lo + 1; i <= hi; i++)
@@ -140,8 +151,8 @@ public class Selection {
     }
 
     /**
-     * Reads in a sequence of strings from standard input; selection sorts them; 
-     * and prints them to standard output in ascending order. 
+     * Reads in a sequence of strings from standard input; selection sorts them;
+     * and prints them to standard output in ascending order.
      */
     public static void main(String[] args) {
         String[] a = StdIn.readAllStrings();
