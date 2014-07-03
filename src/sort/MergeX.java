@@ -1,27 +1,24 @@
 package sort;
 
-import edu.princeton.cs.introcs.StdIn;
-import edu.princeton.cs.introcs.StdOut;
-
 /*************************************************************************
  *  Compilation:  javac MergeX.java
  *  Execution:    java MergeX < input.txt
  *  Dependencies: StdOut.java StdIn.java
  *  Data files:   http://algs4.cs.princeton.edu/22mergesort/tiny.txt
  *                http://algs4.cs.princeton.edu/22mergesort/words3.txt
- *
+ *   
  *  Sorts a sequence of strings from standard input using an
  *  optimized version of mergesort.
- *
+ *   
  *  % more tiny.txt
  *  S O R T E X A M P L E
  *
  *  % java MergeX < tiny.txt
  *  A E E L M O P R S T X                 [ one string per line ]
- *
+ *    
  *  % more words3.txt
  *  bed bug dad yes zoo ... all bad yet
- *
+ *  
  *  % java MergeX < words3.txt
  *  all bad bed bug dad ... yes yet zoo    [ one string per line ]
  *
@@ -63,7 +60,7 @@ public class MergeX {
 
     private static void sort(Comparable[] src, Comparable[] dst, int lo, int hi) {
         // if (hi <= lo) return;
-        if (hi <= lo + CUTOFF) {
+        if (hi <= lo + CUTOFF) { 
             insertionSort(dst, lo, hi);
             return;
         }
@@ -91,7 +88,7 @@ public class MergeX {
      */
     public static void sort(Comparable[] a) {
         Comparable[] aux = a.clone();
-        sort(aux, a, 0, a.length-1);
+        sort(aux, a, 0, a.length-1);  
         assert isSorted(a);
     }
 
@@ -138,8 +135,8 @@ public class MergeX {
 
     /**
      * Reads in a sequence of strings from standard input; mergesorts them
-     * (using an optimized version of mergesort);
-     * and prints them to standard output in ascending order.
+     * (using an optimized version of mergesort); 
+     * and prints them to standard output in ascending order. 
      */
     public static void main(String[] args) {
         String[] a = StdIn.readAllStrings();

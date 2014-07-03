@@ -6,7 +6,7 @@ package sort;
  *  Dependencies: StdOut.java StdIn.java
  *  Data files:   http://algs4.cs.princeton.edu/21sort/tiny.txt
  *                http://algs4.cs.princeton.edu/21sort/words3.txt
- *
+ *  
  *  Sorts a sequence of strings from standard input using insertion sort.
  *
  *  % more tiny.txt
@@ -37,19 +37,6 @@ import edu.princeton.cs.introcs.StdOut;
  *
  *  @author Robert Sedgewick
  *  @author Kevin Wayne
- */
-
-/*
- * Insertion sort. The algorithm that people often use to sort bridge hands is
- * to consider the cards one at a time, inserting each into its proper place
- * among those already considered (keeping them sorted). In a computer
- * implementation, we need to make space for the current item by moving larger
- * items one position to the right, before inserting the current item into the
- * vacated position. Insertion.java is an implementation of this method, which
- * is called insertion sort.Proposition. For randomly ordered arrays of length N
- * with with distinct keys, insertion sort uses ~N2/4 compares and ~N2/4
- * exchanges on the average. The worst case is ~ N2/2 compares and ~ N2/2
- * exchanges and the best case is N-1 compares and 0 exchanges.
  */
 public class Insertion {
 
@@ -111,7 +98,7 @@ public class Insertion {
    /***********************************************************************
     *  Helper sorting functions
     ***********************************************************************/
-
+    
     // is v < w ?
     private static boolean less(Comparable v, Comparable w) {
         return (v.compareTo(w) < 0);
@@ -121,7 +108,7 @@ public class Insertion {
     private static boolean less(Comparator c, Object v, Object w) {
         return (c.compare(v, w) < 0);
     }
-
+        
     // exchange a[i] and a[j]
     private static void exch(Object[] a, int i, int j) {
         Object swap = a[i];
