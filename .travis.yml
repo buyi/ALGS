@@ -1,2 +1,2 @@
 language: java
-script: sh ALGS/auto.sh
+script: sh auto.sh
