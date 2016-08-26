@@ -40,19 +40,80 @@ public class Liner {
 	private Node deleteLast (Node node) {
 		Node previous = null;
 		Node head = node;
-		while (node != null) {
-			if (node.next == null) {
-				previous.next = null;
-			} else {
-				previous = node;
+//		while (node != null) {
+//			if (node.next == null) {
+//				previous.next = null;
+//			} else {
+//				previous = node;
+//			}
+//			node = node.next;
+//		}
+		
+		while (node.next != null) {
+			previous = node;
+			node = node.next;
+		}
+		previous.next = null;
+		return head;
+	}
+	
+	private boolean find (int value, Node node) {
+		while (node.next != null) {
+			if (value == node.value) {
+				return true;
 			}
 			node = node.next;
+		}
+		if (value == node.value) {
+			return true;
+		}
+		return false;
+	}
+	
+	private Node getSpecified (int index, Node node) {
+		int i = 0;
+		while (node.next != null) {
+			
+			if (i == index) 
+				break;
+			node = node.next;
+			i++;
+		
+		}
+		return node;
+	}
+	
+	private Node deleteSpecified (int index, Node node) {
+		Node previous = null;
+		Node head = node;
+		int i = 0;
+		while (node.next != null) {
+			if (i == index)
+				break;
+			previous = node;
+			node = node.next;
+			i++;
+		}
+		
+		if (previous != null) {
+			if (index <= i) { // 只在index小于等于整体链表的时候做操作
+				previous.next = node.next;
+			}
+		} else {
+			head = node.next;
 		}
 		return head;
 	}
 	
+	
+	public Node removeAfter (Node node) {
+		return null;
+	}
 	public static void main(String[] args) {
 		Liner link = new Liner();
-		link.PrintNode(link.deleteLast(link.deleteFirst(link.addFirst(link.createNode()))));
+		//link.deleteLast(link.deleteFirst(link.addFirst(link.createNode())))
+//		link.PrintNode(link.deleteSpecified(4, link.addFirst(link.createNode())));
+		
+//		System.out.println(link.find(1, link.addFirst(link.createNode())));
 	}
 }
