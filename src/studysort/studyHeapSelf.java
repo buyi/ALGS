@@ -41,9 +41,22 @@ public class studyHeapSelf {
 			int temp = heap[index];
 			heap[index] = heap[largest];
 			heap[largest] = temp;
-			
+			printHeapTree(heap);
 			HeapMaxy(heap, largest);
 		}
+	}
+	
+	
+	private void printHeapTree(int[] array)
+	{
+	    for(int i=1;i<array.length;i=i*2)
+	    {
+	        for(int k=i-1;k<2*(i)-1&&k<array.length;k++)
+	        {
+	            System.out.print(array[k]+" ");
+	        }
+	        System.out.println();
+	    }    
 	}
 	
 	public void buildHeap (int[] heap) {
@@ -56,6 +69,7 @@ public class studyHeapSelf {
 	
 	public void heapSort (int[] heap) {
 		buildHeap(heap);
+		 System.out.println("Step:0 "+ Arrays.toString(heap));
 		int step =1;
 		
 		for (int i = heapSize-1; i>=0; i--) {
